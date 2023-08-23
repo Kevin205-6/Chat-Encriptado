@@ -24,7 +24,7 @@ function Desencriptar() {
                 </nav>
                 <section>
                     <MessDesc message="Hola dsyvjcs cjhvsh" user="yo"/>
-                    <MessDesc message="Hola" user="userio"/>
+                    <MessDesc message="Hola" user="usuario"/>
                     <MessDesc message="Hola" user="yo"/>
                 </section>
             </aside>
