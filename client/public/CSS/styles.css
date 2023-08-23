@@ -1,0 +1,86 @@
+header {
+    background-color: rgb(59, 59, 59);
+    margin: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+header > a > button {
+    margin: 0 1rem 0 0;
+}
+
+
+main {
+    width: 100%;
+    height: 33.25rem;
+    display: flex;
+}
+
+footer {
+    background-color: rgb(59, 59, 59);
+    margin: 0;
+    width: 100%;
+    height: 3rem;
+}
+
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contPrincipal{
+    background-color: rgb(158, 158, 158);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 10rem;
+}
+
+.claveDesc{
+    font-weight: bold;
+}
+
+.desencriptar{
+    border-color: rgb(158, 158, 158);
+    background-color: rgb(158, 158, 158);
+    border-style: solid;
+    width: 40%;
+    height: 100%;
+}
+
+.desencriptar > section{
+    border-style: solid;
+    border-color: rgb(158, 158, 158);
+    border-radius: 2rem;
+    background-color: rgb(223, 223, 223);
+    height: 70%;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.messDesc {
+    
+    background-color: rgb(1, 127, 134);
+    color: rgb(233, 234, 234);
+    width: 80%;
+}
+
+.messDesc > p{
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.messDesc > p > span{
+    font-weight: bold;
+}
+
+.messDesc-user{
+    border-radius: 1rem 1rem 1rem 0rem;
+}
+
+.messDesc-me{
+    border-radius: 1rem 1rem 0rem 1rem;
+    margin-left: 20%;
+}
