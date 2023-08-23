@@ -3,18 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "start": "node .",
     "serv-dev": "nodemon .",
-    "pag-dev": "cd client && npm run dev && cd ..", 
+    "pag-dev": "cd client && npm run dev && cd ..",
     "dev": "concurrently -n Server,Pagina  \"npm run serv-dev \" \"npm run pag-dev\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "react-bootstrap": "^2.8.0",
+    "morgan": "^1.10.0",
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
