@@ -6,6 +6,7 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 let key = "";
 
 $(document).ready (function(){
+    
     $('#ci').click(function(){
 
          //para cifar se usa la funcion y = (x+z)mod27
