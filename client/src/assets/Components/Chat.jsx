@@ -1,5 +1,16 @@
+import { useState } from 'react';
 
 function Chat (){
+
+    const [mesanje, setMensaje] = useState('');
+
+    const handleSumit = (e) => {
+         
+        e.preventDefault()
+        console.log(mesanje)
+        socket.emit('mensj',mesanje)
+    }
+
     return (<>
             <section>
                 <div className="mesajes">
@@ -7,18 +18,24 @@ function Chat (){
 
                 </div>
 
-                <nav className="Menu --bs-light-bg-subtle">
-                <div className="bg-primary-subtle">
+                <nav className='op'>
+                
 
-                <label htmlFor="clave" >Clave: </label>
+               <form onSubmit={handleSumit}>
 
-                    < input type="text" placeholder="Clave" />
-                    <button className="btn btn-secondary">Limpiar</button>
+               <label htmlFor="clave" className='claveDesc' >Clave: </label>
+
+                <input type="text" placeholder="Clave" id="keyDesc" className="form-control" />
+                <button className="btn btn-secondary">Limpiar</button>
+
                     <br />
-                    <textarea id="mesanje" cols="30" rows="10"></textarea>
 
-                </div>
-                   <button className="btn btn-success">Enviar</button> 
+                    <textarea id="mesanje" cols="30" rows="10" onChange={e => setMensaje(e.target.value)}></textarea>
+
+
+                    <button className="btn btn-success" onSubmit={handleSumit}>Enviar</button> 
+
+               </form>
 
                 </nav>
             </section>

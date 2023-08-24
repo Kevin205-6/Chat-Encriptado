@@ -18,6 +18,7 @@ class Servidor {
             socket.on('enviar', (data) => {
                 socket.broadcast.emit('recibir', data)
             });
+           
         });
         this.server.listen(process.env.PORT);
     }
