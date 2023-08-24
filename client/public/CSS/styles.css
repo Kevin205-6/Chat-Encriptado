@@ -84,3 +84,8 @@ footer {
     border-radius: 1rem 1rem 0rem 1rem;
     margin-left: 20%;
 }
+
+.content{
+    display: flex;
+    justify-content: space-evenly;
+}
