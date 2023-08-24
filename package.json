@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node .",
-    "serv-dev": "nodemon .",
+    "serv-dev": "nodemon main.js",
     "pag-dev": "cd client && npm run dev && cd ..",
     "dev": "concurrently -n Server,Pagina  \"npm run serv-dev \" \"npm run pag-dev\""
   },
