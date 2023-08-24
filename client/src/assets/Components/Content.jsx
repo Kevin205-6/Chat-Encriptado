@@ -1,6 +1,6 @@
 import Desencriptar from './Desencriptar.jsx';
 import useObtMessDes from './Hooks/useObtMessDes.js';
-import Prueba from './Prueba.jsx'
+// import Prueba from './Prueba.jsx'
 
 function Content() {
     const {inputKey, messageDes, KeyInput, ButtonClicNewKey, ButtonSetMessDes, ButtonCleanContent, InfoRadioButton} = useObtMessDes();
@@ -13,7 +13,7 @@ function Content() {
                     ButtonClicNewKey={ButtonClicNewKey} 
                     ButtonSetMessDes={ButtonSetMessDes} 
                     ButtonCleanContent={ButtonCleanContent}/>
-                    <Prueba InfoRadioButton={InfoRadioButton}/>
+                    {/* <Prueba InfoRadioButton={InfoRadioButton}/> */}
                 </main>
             </> );
 }
