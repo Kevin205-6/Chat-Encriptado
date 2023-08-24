@@ -6,10 +6,11 @@ function Chat (){
 
 
                 </div>
+
                 <nav className="Menu --bs-light-bg-subtle">
                 <div className="bg-primary-subtle">
 
-                <label htmlFor="clave"className="form-control" >Clave: </label>
+                <label htmlFor="clave" >Clave: </label>
 
                     < input type="text" placeholder="Clave" />
                     <button className="btn btn-secondary">Limpiar</button>
