@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useManipularCont from './useManipularCont.js'
 import { SendMessage } from '../../Controllers/ConectServer.js'
+import Veginere from '../../Controllers/Vigenere.js'
 
 function useMensajes(encriptar = true) {
     const { content, SetData } = useManipularCont();
@@ -11,7 +12,7 @@ function useMensajes(encriptar = true) {
         let msg = (encriptar === true ? mensaje : Desencriptar(mensaje, content))
         SetMensajes([...mensajes, {
             user: user,
-            menssage: mensaje
+            menssage: msg
         }]);
     }
 
@@ -37,9 +38,11 @@ function useMensajes(encriptar = true) {
 export default useMensajes;
 
 function Encriptar(mensaje, key) {
-    return mensaje
+    const algoritmo = new Veginere();
+    return algoritmo.Cipher(mensaje, key);
 }
 
 function Desencriptar(mensaje, key) {
-    return mensaje
+    const algoritmo = new Veginere()
+    return algoritmo.Decipher(mensaje, key)
 }

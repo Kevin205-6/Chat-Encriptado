@@ -71,7 +71,7 @@ class Vigenere {
     VigenereDecipher(letterMess, letterKey) {
         let n = ((letterMess - letterKey) % this.alphabet.length)
         if (n < 0) {
-            n *= -1;
+            n += this.alphabet.length;
         }
         return n
     }
@@ -109,6 +109,7 @@ class Vigenere {
 const algoritmo1 = new Vigenere()
 const algoritmo2 = new Vigenere()
 
-console.log(algoritmo1.Cipher('c', 'c'));
-console.log(algoritmo2.Decipher('e', 'c'));
+console.log(algoritmo1.Cipher('hola soy kevinz', 'cba'));
+console.log(algoritmo2.Decipher('jplc toa lexjnb', 'cba'));
+
 
