@@ -1,45 +1,54 @@
-import { useState } from 'react';
+import { useEffect } from 'react'
+import MenssageEncript from './Chat/MenssageEncript'
+import Clave from './Chat/Clave.jsx'
+import useManipularCont from './Hooks/useManipularCont.js'
+import useMesajes from './Hooks/useMesajes.js'
+import { sockect } from '../Controllers/ConectServer.js'
+
 
 function Chat (){
+    let cont = 0;
+    const {content, ObtCont} = useManipularCont();
+    const {mensajes, EnviarMensaje, SetData, GuardarMensaje} = useMesajes();
 
-    const [mesanje, setMensaje] = useState('');
 
-    const handleSumit = (e) => {
-         
-        e.preventDefault()
-        console.log(mesanje)
-        socket.emit('mensj',mesanje)
-    }
+    useEffect(()=>{
+        sockect.on('recibir', (message)=>{
+            GuardarMensaje('user', message)
+        })
+    })
 
     return (<>
-            <section className='chat'>
-                <div className="mesajes">
-
-
+            <section className='chat des-chat'>
+                <div className="mesajes scroll-message">
+                    {
+                        mensajes.map((obj)=>{
+                            
+                            return <MenssageEncript obj={obj} key={cont++}/>
+                        })
+                    }
                 </div>
-
-                <nav className='op'>
-                
-
-               <form onSubmit={handleSumit}>
-
-               <label htmlFor="clave" className='claveDesc' >Clave: </label>
-
-                <input type="text" placeholder="Clave" id="keyDesc" className="form-control" />
-                <button className="btn btn-secondary">Limpiar</button>
-
-                    <br />
-
-                    <textarea id="mesanje" cols="30" rows="10" onChange={e => setMensaje(e.target.value)}></textarea>
-
-
-                    <button className="btn btn-success" onSubmit={handleSumit}>Enviar</button> 
-
-               </form>
-
+                <nav className='contenedor'>
+                <div className='inChat'>
+                    <Clave SetData={SetData}/>
+                <textarea 
+                    className="form-contro txtmesaje"
+                    id="mesanje" 
+                    placeholder='Mensaje' 
+                    onChange={ObtCont}
+                />
+                </div>
+                <button 
+                    className="btn btn-success"  
+                    id='enviar'
+                    onClick={()=>{EnviarMensaje(content)}}
+                >
+                    Enviar
+                </button> 
                 </nav>
             </section>
     </>);
 }
 
 export default Chat;
+

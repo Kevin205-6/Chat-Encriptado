@@ -2,11 +2,11 @@
   "name": "appencriptacion",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server/main.js",
   "type": "module",
   "scripts": {
     "start": "node .",
-    "serv-dev": "nodemon main.js",
+    "serv-dev": "nodemon .",
     "pag-dev": "cd client && npm run dev && cd ..",
     "dev": "concurrently -n Server,Pagina  \"npm run serv-dev \" \"npm run pag-dev\""
   },
