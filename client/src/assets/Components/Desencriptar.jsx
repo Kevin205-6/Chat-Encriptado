@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import MessDesc from './MessDesc.jsx'
 import useMesajes from './Hooks/useMesajes.js'
 import useManipularCont from './Hooks/useManipularCont.js'
+import useValidarDatos from './Hooks/useValidarDatos.js'
 
 
 function Desencriptar({clave, messageEnc}) {
@@ -15,6 +16,8 @@ function Desencriptar({clave, messageEnc}) {
         modificar = true;
         setDataMet(clave)
     },[clave]);
+
+    new useValidarDatos(content)
 
     useEffect(()=>{
         if(modificar=true){
@@ -48,9 +51,7 @@ function Desencriptar({clave, messageEnc}) {
                             Nueva clave
                         </button>
                     </div>
-                    <div >
-                        <p><span>Mensaje:</span></p>
-                    </div>
+                    
                     <div className="contenedor">
                         <button className="btn btn-danger"
                         onClick={()=>{
@@ -60,6 +61,7 @@ function Desencriptar({clave, messageEnc}) {
                         >
                             Desencriptar
                         </button>
+
                         <button 
                         className="btn btn-warning"
                         onClick={ButtonLimpiar}

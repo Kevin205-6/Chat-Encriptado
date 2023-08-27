@@ -29,7 +29,7 @@ function useMensajes(encriptar = true) {
     }
 
     const ButtonLimpiar = () => {
-        SendMessage([]);
+        SetMensajes([]);
     }
 
     return { mensajes, GuardarMensaje, SetData, EnviarMensaje, ButtonLimpiar };

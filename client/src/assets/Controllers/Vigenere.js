@@ -75,7 +75,6 @@ class Vigenere {
     }
 
     ConvertText() {
-        console.log(this.arrayNewMess)
         let newMessage = '';
         this.arrayNewMess.map(num => {
             if (num === ' ') {
