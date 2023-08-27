@@ -27,7 +27,11 @@ function useMensajes(encriptar = true) {
         }]);
     }
 
-    return { mensajes, GuardarMensaje, SetData, EnviarMensaje };
+    const ButtonLimpiar = () => {
+        SendMessage([]);
+    }
+
+    return { mensajes, GuardarMensaje, SetData, EnviarMensaje, ButtonLimpiar };
 }
 
 export default useMensajes;

@@ -14,7 +14,11 @@ function useManipularCont() {
     const SetData = (value) => {
         setContent(value)
     }
-    return { content, ObtCont, ButtonLimpiarContent, SetData };
+
+    const setDataMet = (value) => {
+        SetData(value)
+    }
+    return { content, ObtCont, ButtonLimpiarContent, SetData, setDataMet };
 }
 
 export default useManipularCont;

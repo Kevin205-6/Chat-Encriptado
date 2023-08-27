@@ -1,9 +1,27 @@
-// import useObtMessDes from './Hooks/useObtMessDes.js';
+import { useEffect } from 'react';
 import MessDesc from './MessDesc.jsx'
+import useMesajes from './Hooks/useMesajes.js'
+import useManipularCont from './Hooks/useManipularCont.js'
 
-function Desencriptar() {
-    let num =1;
-    // const {inputKey, messageDes, KeyInput, ButtonClicNewKey, ButtonSetMessDes, ButtonCleanContent} = useObtMessDes();
+
+function Desencriptar({clave, messageEnc}) {
+    const   {content, ObtCont, ButtonLimpiarContent, setDataMet} = useManipularCont();
+    const  {mensajes, GuardarMensaje, SetData, ButtonLimpiar } = useMesajes(false);
+
+    let cont =0;
+    let modificar = true;
+
+    useEffect(()=>{
+        modificar = true;
+        setDataMet(clave)
+    },[clave]);
+
+    useEffect(()=>{
+        if(modificar=true){
+            setDataMet(content)
+        }
+        SetData(content)
+    },[content])
 
     return ( 
         <>
@@ -15,10 +33,17 @@ function Desencriptar() {
                             <input type="text" 
                                 id="keyDesc" 
                                 className="form-control" 
-                                placeholder="Ingresa"/>
+                                placeholder="Ingresa"
+                                value={content}
+                                onChange={ObtCont}
+                                />
                         </label>
                         <button 
                             className="btn btn-primary" 
+                            onClick={()=>{
+                                modificar=false;
+                                ButtonLimpiarContent();
+                            }}
                             >
                             Nueva clave
                         </button>
@@ -28,24 +53,27 @@ function Desencriptar() {
                     </div>
                     <div className="contenedor">
                         <button className="btn btn-danger"
+                        onClick={()=>{
+                            let msg = JSON.parse(messageEnc);
+                            GuardarMensaje(msg.user, msg.menssage);
+                        }}
                         >
                             Desencriptar
                         </button>
                         <button 
                         className="btn btn-warning"
+                        onClick={ButtonLimpiar}
                         >
                             Limpiar
                         </button>
                     </div>
                 </nav>
                 <section id="MessDesc" className='scroll-message'>
-                    {/* {
-                        
-                        messageDes.map(({user, message}) =>{
-                            return <MessDesc message={message + num++} user={user.toString()} key={num}/>
-                            
+                    {
+                        mensajes.map(obj=>{
+                            return <MessDesc obj={obj} key={cont++}/>
                         }).reverse()
-                    } */}
+                    }
                 </section>
             </aside>
         </>

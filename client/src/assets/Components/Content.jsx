@@ -1,22 +1,18 @@
 import Desencriptar from './Desencriptar.jsx';
-
-import useObtMessDes from './Hooks/useObtMessDes.js';
+import useObtData from './Hooks/useObtData.js'
 
 import Chat from './Chat.jsx';
 
 
 
 function Content() {
-    const {inputKey, messageDes, KeyInput, ButtonClicNewKey, ButtonSetMessDes, ButtonCleanContent, InfoRadioButton} = useObtMessDes();
+
+    const { content, data, SetData, ObtData } = useObtData()
+    
     return ( <>
                 <main>
-                    <Chat user="yo"/>
-                    <Desencriptar inputKey={inputKey} 
-                    messageDes={messageDes} 
-                    KeyInput={KeyInput} 
-                    ButtonClicNewKey={ButtonClicNewKey} 
-                    ButtonSetMessDes={ButtonSetMessDes} 
-                    ButtonCleanContent={ButtonCleanContent}/>
+                    <Chat obtMenssage={SetData} ObtData={ObtData}/>
+                    <Desencriptar clave={content} messageEnc={data} />
                 </main>
             </> );
 }

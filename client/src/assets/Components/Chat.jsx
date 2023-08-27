@@ -6,7 +6,7 @@ import useMesajes from './Hooks/useMesajes.js'
 import { sockect } from '../Controllers/ConectServer.js'
 
 
-function Chat (){
+function Chat ({obtMenssage, ObtData}){
     let cont = 0;
     const {content, ObtCont} = useManipularCont();
     const {mensajes, EnviarMensaje, SetData, GuardarMensaje} = useMesajes();
@@ -24,13 +24,13 @@ function Chat (){
                     {
                         mensajes.map((obj)=>{
                             
-                            return <MenssageEncript obj={obj} key={cont++}/>
-                        })
+                            return <MenssageEncript obj={obj} ObtData={ObtData} key={cont++}/>
+                        }).reverse()
                     }
                 </div>
                 <nav className='contenedor'>
                 <div className='inChat'>
-                    <Clave SetData={SetData}/>
+                    <Clave SetData={SetData} obtMenssage={obtMenssage}/>
                 <textarea 
                     className="form-contro txtmesaje"
                     id="mesanje" 

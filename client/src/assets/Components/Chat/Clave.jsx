@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import useManipularCont from '../Hooks/useManipularCont'
 
-function Clave({SetData}) {
+function Clave({SetData, obtMenssage}) {
     const {content, ButtonLimpiarContent, ObtCont} = useManipularCont();
 
     useEffect(()=>{
         SetData(content)
+        obtMenssage(content)
     },[content])
 
     return ( <>

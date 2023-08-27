@@ -1,11 +1,11 @@
 
 
-function MessDesc(user='yo', menssage ='csvcvsevfev efcerfrf') { 
+function MessDesc({obj}) { 
     return ( <>
-                <div className={user == 'yo' ? 'messDesc messDesc-me':'messDesc messDesc-user'}>
+                <div className={obj.user == 'yo' ? 'messDesc messDesc-me':'messDesc messDesc-user'}>
                     <p>
-                        <span>{user}:</span><br />
-                        {menssage}
+                        <span>{obj.user}:</span><br />
+                        {obj.menssage}
                     </p>
                 </div>
             </> );
